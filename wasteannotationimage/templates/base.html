@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}WAI{% endblock %}</title>
+  <!--<link rel="stylesheet" href="/media/css/style.css" />-->
+  <!--<script src="script.js"></script>-->
+</head>
+<body>
+  <header>
+    <!--<img src="{% static 'img/header.png' %}" alt="Header png" class="headerimg" /> -->
+    <h1 class="headerText">Waste Annotation Image</h1>
+    <p>{% block loginuser %}user name{% endblock %}</p>
+  </header>
+  <section id="content">
+    {% block content %}
+      <h2>Il n'y a rien sur cette page</h2>
+    {% endblock %}
+  </section>
+  <footer>
+    <p>&copy; WAI 2018</p>
+    <a href="">About</a>
+    <!--<img src="{% static 'img/header.png' %}" alt="Header png" class="headerimg" /> -->
+  </footer>
+</body>
+</html>
