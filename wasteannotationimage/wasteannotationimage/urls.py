@@ -22,4 +22,5 @@ urlpatterns = [
     #path('annotation/', include('annotation.urls')),
     path('', include('account.urls')),
     path('', include('annotation.urls')),
+    path('', include('django.contrib.auth.urls')),
 ]

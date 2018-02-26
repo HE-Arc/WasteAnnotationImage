@@ -2,9 +2,18 @@
 <html lang="fr">
   {% extends "base.html" %}
   {% load static %}
-  {% block title %}login{% endblock %}
+  {% block title %}Annotation{% endblock %}
+  {% block loginuser %}
+    {% if user.is_authenticated %}
+      Hi {{ user.username }}!
+      <p><a href="{% url 'logout' %}">logout</a></p>
+      {% else %}
+      <p>You are not logged in</p>
+      <a href="{% url 'login' %}">login</a>
+    {% endif %}
+  {% endblock %}
   {% block content %}
     <h1>Annotation</h1>
-    <p>Sélectionner un tag de déchêts, cliqué sur le déchêts correspondant sur l'image</p>
+    <p>Sélectionnez un tag de déchêts, cliquez sur le déchêts correspondant sur l'image</p>
   {% endblock %}
 </html>
