@@ -1,7 +1,3 @@
-h1 {
-  text-align: center;
-}
-
 h2 {
   text-align: center;
 }
@@ -10,19 +6,23 @@ input{
   float: right;
 }
 
-#divlogin{
+span {
+  display: block;
+}
+
+#divsignup{
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
 
-#formlogin{
+#formsignup{
   border:5px solid #0000b3;
-  width:45%;
+  width:60%;
   padding:8px 8px;
   margin:0 auto;
 }
 
-#formbuttondiv{
+#formsignupbuttondiv{
   text-align:center;
 }

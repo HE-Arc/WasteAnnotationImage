@@ -1,5 +1,6 @@
 h1 {
-    color: #FCA205;
+    color: #0000b3;
+    font-family: 'Sonsie One', "Comic Sans MS";
 }
 
 .header {
@@ -20,8 +21,8 @@ h1 {
 .headerText{
   position: relative;
   text-align: center;
-  font-family: 'Sonsie One', "Comic Sans MS";
-  font-size: 2.5em;
+  /*font-family: 'Sonsie One', "Comic Sans MS";*/
+  font-size: 2.6em;
 }
 
 .username {
