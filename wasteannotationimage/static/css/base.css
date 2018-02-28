@@ -1,0 +1,94 @@
+h1 {
+    color: #FCA205;
+}
+
+.header {
+  position: absolute;
+  margin-left: 10%;
+  margin-right: 10%;
+  top:0;
+  width:80%;
+  }
+
+.headerimg {
+   top: 0;
+   left: 0;
+   position: absolute;
+   width: 100%;
+  }
+
+.headerText{
+  position: relative;
+  text-align: center;
+  font-family: 'Sonsie One', "Comic Sans MS";
+  font-size: 2.5em;
+}
+
+.username {
+  position: relative;
+  float: right;
+  font-size: 1.1em;
+}
+
+.footer {
+    position: absolute;
+    margin-left: 10%;
+    margin-right: 10%;
+    bottom:0;
+    width:80%;
+    background-color: #8fcd08;
+}
+
+.footer p {
+    color: #fff;
+    font-size:.90em;
+    display: inline-block;
+}
+
+.container {
+    width: 100%;  /* adjust to allow for padding as needed */
+    padding:0 50px;
+}
+
+.footerimg {
+    width: 50%;
+    height: 90%;
+}
+
+.about a {
+    color:white;
+}
+
+#ftr-wrap {
+    display:table;
+    table-layout:fixed;
+    width:100%;
+    margin:0 auto;
+}
+#ftr-wrap > div {
+    display:table-cell;
+    vertical-align:middle;
+    /* outline:1px dashed red;  *//* TEST Outline.  TO BE DELETED. */
+}
+#ftr-wrap > div:nth-child(1) {text-align:left;}
+#ftr-wrap > div:nth-child(2) {text-align:center;}
+#ftr-wrap > div:nth-child(3) {text-align:right;}
+
+.ftr-links ul {
+    padding: 0;
+}
+.ftr-links ul li {
+    display: inline-block;
+    padding-right: 15px;
+    font-size:.75em;
+}
+.ftr-links ul li a {
+    color: #fff;
+    margin: 0;
+}
+
+#content {
+  margin-top: 6%;
+  margin-left: 10%;
+  margin-right: 10%;
+}

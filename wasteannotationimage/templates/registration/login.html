@@ -3,13 +3,21 @@
   {% extends "base.html" %}
   {% load static %}
   {% block title %}login{% endblock %}
+  {% block css  %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  {% endblock %}
   {% block content %}
-    <h1>Bienvenue</h1>
-    <h2>Login</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Login</button>
-    </form>
+    <div id="divlogin">
+      <h1>Bienvenue</h1>
+      <h2>Login</h2>
+      <form id="formlogin" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+          <div id="formbuttondiv">
+            <button id="buttonlogin" type="submit">Login</button>
+            <button  onclick="location.href='{% url "signup" %}';">Create Account</button>
+          </div>
+      </form>
+    </div>
   {% endblock %}
 </html>

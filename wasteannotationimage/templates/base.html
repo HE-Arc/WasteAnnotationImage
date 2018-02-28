@@ -1,27 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 {% load static %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
 <head>
   <meta charset="utf-8">
   <title>{% block title %}WAI{% endblock %}</title>
-  <!--<link rel="stylesheet" href="/media/css/style.css" />-->
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link href='https://fonts.googleapis.com/css?family=Sonsie One' rel='stylesheet'>
+  {% block css  %}{% endblock %}
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">-->
   <!--<script src="script.js"></script>-->
 </head>
 <body>
-  <header>
-    <!--<img src="{% static 'img/header.png' %}" alt="Header png" class="headerimg" /> -->
+  <header class="header">
+    <img src="{% static 'img/headerWAI.jpg' %}" alt="HeaderWai jpg" class="headerimg" />
     <h1 class="headerText">Waste Annotation Image</h1>
-    <p>{% block loginuser %}user name{% endblock %}</p>
+    <p class="username">{% block loginuser %}user name{% endblock %}</p>
   </header>
   <section id="content">
     {% block content %}
       <h2>Il n'y a rien sur cette page</h2>
     {% endblock %}
   </section>
-  <footer>
-    <p>&copy; WAI 2018</p>
-    <a href="">About</a>
-    <!--<img src="{% static 'img/header.png' %}" alt="Header png" class="headerimg" /> -->
+  <footer class="footer">
+    <div class="container">
+      <div id="ftr-wrap">
+        <div class="copyright">
+          <p>&copy; WAI 2018</p>
+        </div>
+        <div class="about">
+          <a href="">About</a>
+        </div>
+        <div>
+          <img src="{% static 'img/logoIng.png' %}" alt="logoHEARC png" class="footerimg" />
+        </div>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
