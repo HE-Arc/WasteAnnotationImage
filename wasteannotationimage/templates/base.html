@@ -39,7 +39,9 @@
           <p>&copy; WAI 2018</p>
         </div>
         <div class="about">
-          <a href="">About</a>
+          {% block aboutfooter %}
+            <a href="{% url "about"%}">About</a>
+          {% endblock %}
         </div>
         <div>
           <img src="{% static 'img/logoIng.png' %}" alt="logoHEARC png" class="footerimg" />
