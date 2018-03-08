@@ -3,6 +3,10 @@ h1 {
     font-family: 'Sonsie One', "Comic Sans MS";
 }
 
+a {
+    margin-right: 15px;
+}
+
 .header {
   position: absolute;
   margin-left: 10%;
@@ -25,10 +29,10 @@ h1 {
   font-size: 2.6em;
 }
 
-.username {
+.usermenu {
   position: relative;
   float: right;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 .footer {

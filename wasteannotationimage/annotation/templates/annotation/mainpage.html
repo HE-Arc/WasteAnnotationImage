@@ -3,16 +3,29 @@
   {% extends "base.html" %}
   {% load static %}
   {% block title %}Annotation{% endblock %}
+  {% block css  %}
+    <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
+  {% endblock %}
   {% block loginuser %}
     {% if user.is_authenticated %}
       Hello {{ user.username }}!
-      <p><a href="{% url 'logout' %}">logout</a></p>
+      <p><a href="{% url 'logout' %}">logout</a><a href="{% url 'newimage' %}">manage image</a></p>
       {% else %}
       <p>You are not logged in : <a href="{% url 'login' %}">login</a></p>
     {% endif %}
   {% endblock %}
   {% block content %}
     <h1>Annotation</h1>
-    <p>Sélectionnez un tag de déchêts, cliquez sur le déchêts correspondant sur l'image</p>
+    <p>Sur l'image, cliquez sur un déchet et entrer un nom adéquat. Faite la même chose pour tous les déchêts présents sur l'image</p>
+    {% for image in imagesObj %}
+      <div class="annotationContainer">
+      	<h4 class="imageName">{{ image.name }}</h3>
+        <div class="imageContainer">
+          <img class="object-fit-cover" src="{{ image.image.url }}"/>
+        </div>
+      </div>
+    {% empty %}
+      <p>Aucune image.</p>
+    {% endfor %}
   {% endblock %}
 </html>
