@@ -29,7 +29,10 @@
       {% block loginuser %}
         {% if user.is_authenticated %}
           Hello {{ user.username }}!
-          <p><a class="loginlink" href="{% url 'logout' %}">logout</a><a href="{% url 'newimage' %}">manage image</a></p>
+          <p><a class="loginlink" href="{% url 'logout' %}">logout</a>
+          {% if request.user.is_staff %}
+              <a href="{% url 'newimage' %}">manage image</a></p>
+          {% endif %}
           {% else %}
           <p>You are not logged in : <a href="{% url 'login' %}">login</a></p>
         {% endif %}

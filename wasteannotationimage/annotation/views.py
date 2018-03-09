@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
+from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth.models import User
 from annotation.models import Image
 from .forms import NewImage
 
