@@ -25,7 +25,7 @@ SECRET_KEY = '^rj(u8bs-2!yz1oxwbp^7=k8j0(-x-6ts__mj*)jz%m_0mj)&r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['wai.srvz-webapp.he-arc.ch']
 
 
 # Application definition
