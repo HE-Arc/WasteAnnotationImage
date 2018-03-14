@@ -1,32 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
-  {% extends "base.html" %}
-  {% load static %}
-  {% block title %}Annotation{% endblock %}
-  {% block loginuser %}
-    {% if user.is_authenticated %}
-      Hello {{ user.username }}!
-      <p><a href="{% url 'logout' %}">logout</a><a href="{% url 'newimage' %}">manage image</a></p>
-      {% else %}
-      <p>You are not logged in : <a href="{% url 'login' %}">login</a></p>
-    {% endif %}
-  {% endblock %}
-  {% block content %}
-    <h1>Ajouter image au site</h1>
-    {% if isSave %}
-      <p>Cette image a bien été enregistré.</p>
-    {% endif %}
-    <div>
-        <!--<form method="post" enctype="multipart/form-data" action=".">
-           {% csrf_token %}
-           {{ form.as_p }}
-           <input type="submit"/>
-        </form>-->
-        <form action="{% url "newimage" %}" method="post" enctype="multipart/form-data">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <input type="submit" value="Submit" />
-        </form>
-    </div>
-  {% endblock %}
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Annotation{% endblock %}
+{% block content %}
+  <h1>Ajouter image au site</h1>
+  {% if isSave %}
+    <p>Cette image a bien été enregistré.</p>
+  {% endif %}
+  <div>
+      <!--<form method="post" enctype="multipart/form-data" action=".">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <input type="submit"/>
+      </form>-->
+      <form action="{% url "newimage" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+      </form>
+  </div>
+{% endblock %}

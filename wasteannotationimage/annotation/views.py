@@ -26,6 +26,17 @@ def newImage(request):
 
     return render(request, 'annotation/newImage.html', locals())
 
+def annotationImage(request, id):
+    """ Afficher une image avec l'outil d'annotation """
+    #try:
+    #    article = Article.objects.get(id=id)
+    #except Article.DoesNotExist:
+    #    raise Http404
 
+    #raccourci django
+    image = get_object_or_404(Image, id=id)
+    #pour récupérer une liste d'objet -->get_list_or_404
+
+    return render(request, 'annotation/annotationImage.html', {'image': image})
 
 # Create your views here.

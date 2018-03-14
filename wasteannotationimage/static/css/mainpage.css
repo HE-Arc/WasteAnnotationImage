@@ -1,13 +1,21 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 10px;
+}
+
 .imageContainer {
-  width: 50%; /*any size*/
-  height: 50%; /*any size*/
+  width: 22%; /*any size*/
+  height: 22%; /*any size*/
 }
 
 .imageName {
-  margin: 15px 0;
+  margin: 20px 0 0 0;
 }
+
 .object-fit-cover {
   width: 100%;
   height: 100%;
-  object-fit: cover; /*magic*/
+  object-fit: cover;
 }

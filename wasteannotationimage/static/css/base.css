@@ -32,11 +32,11 @@ a {
 .usermenu {
   position: relative;
   float: right;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .footer {
-    position: absolute;
+    position: fixed;
     margin-left: 10%;
     margin-right: 10%;
     bottom:0;
@@ -96,4 +96,5 @@ a {
   margin-top: 6%;
   margin-left: 10%;
   margin-right: 10%;
+  margin-bottom: 3%;
 }

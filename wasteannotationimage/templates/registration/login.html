@@ -1,29 +1,26 @@
-<!DOCTYPE html>
-<html lang="fr">
-  {% extends "base.html" %}
-  {% load static %}
-  {% block title %}login{% endblock %}
-  {% block css  %}
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-  {% endblock %}
-  {% block loginuser %}
-    {# rien #}
-  {% endblock %}
-  {% block content %}
-    <div id="divlogin">
-      <h1>Bienvenue</h1>
-      <h2>Login</h2>
-      <form id="formlogin" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-          <div id="formbuttondiv">
-            <button id="buttonlogin" type="submit">Login</button>
-            <button  onclick="location.href='{% url "signup" %}';">Create Account</button>
-          </div>
-      </form>
-    </div>
-  {% endblock %}
-  {% block aboutfooter %}
-  {# not link about if we are not connected #}
-  {% endblock %}
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}login{% endblock %}
+{% block css  %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+{% block loginuser %}
+  {# rien #}
+{% endblock %}
+{% block content %}
+  <div id="divlogin">
+    <h1>Bienvenue</h1>
+    <h2>Login</h2>
+    <form id="formlogin" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+        <div id="formbuttondiv">
+          <button id="buttonlogin" type="submit">Login</button>
+          <button  onclick="location.href='{% url "signup" %}';">Create Account</button>
+        </div>
+    </form>
+  </div>
+{% endblock %}
+{% block aboutfooter %}
+{# not link about if we are not connected #}
+{% endblock %}

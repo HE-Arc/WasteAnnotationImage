@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-  {% extends "base.html" %}
-  {% load static %}
-  {% block title %}Annotation{% endblock %}
-  {% block loginuser %}
-    {% if user.is_authenticated %}
-      Hello {{ user.username }}!
-      <p><a href="{% url 'logout' %}">logout</a><a href="{% url 'newimage' %}">manage image</a></p>
-      {% else %}
-      <p>You are not logged in : <a href="{% url 'login' %}">login</a></p>
-    {% endif %}
-  {% endblock %}
-  {% block content %}
-    <h1>A propos</h1>
-    <p>Waste Annotation Image est un projet développé dans le cadre du cours de
-    développement web en 3ème année de Bachelor à la HES Arc.</p>
-    <p>Ce site à pour but de permettre aux utilisateur de faire des annotations
-      sur des images. Pour être plus précis, il faut tagger les déchêts présents source
-    les images et leur attribuer un nom.</p>
-  {% endblock %}
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Annotation{% endblock %}
+{% block content %}
+  <h1>A propos</h1>
+  <p>Waste Annotation Image est un projet développé dans le cadre du cours de
+  développement web en 3ème année de Bachelor à la HES Arc.</p>
+  <p>Ce site à pour but de permettre aux utilisateur de faire des annotations
+    sur des images. Pour être plus précis, il faut tagger les déchêts présents source
+  les images et leur attribuer un nom.</p>
+{% endblock %}

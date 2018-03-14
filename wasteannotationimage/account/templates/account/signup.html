@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
-  {% extends "base.html" %}
-  {% load static %}
-  {% block title %}Sign up{% endblock %}
-  {% block css  %}
-    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
-  {% endblock %}
-  {% block loginuser %}
-    {# rien #}
-  {% endblock %}
-  {% block content %}
-  <div id="divsignup">
-    <h2>Sign up</h2>
-    <form id="formsignup" method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <div id="formsignupbuttondiv">
-        <button type="submit">Sign up</button>
-      </div>
-    </form>
-  </div>
-  {% endblock %}
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sign up{% endblock %}
+{% block css  %}
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+{% block loginuser %}
+  {# rien #}
+{% endblock %}
+{% block content %}
+<div id="divsignup">
+  <h2>Sign up</h2>
+  <form id="formsignup" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div id="formsignupbuttondiv">
+      <button type="submit">Sign up</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

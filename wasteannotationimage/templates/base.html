@@ -21,16 +21,18 @@
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">-->
   <!--<script src="script.js"></script>-->
 </head>
+{% block bodyCustom %}
 <body>
+{% endblock %}
   <header class="header">
     <img src="{% static 'img/headerWAI.jpg' %}" alt="HeaderWai jpg" class="headerimg" />
     <h1 class="headerText">Waste Annotation Image</h1>
     <p class="usermenu">
       {% block loginuser %}
         {% if user.is_authenticated %}
-          Hello {{ user.username }}!
+          Bonjour {{ user.username }}!
           <p><a class="loginlink" href="{% url 'logout' %}">logout</a>
-          {% if request.user.is_staff %}
+          {% if user.is_staff %}
               <a href="{% url 'newimage' %}">manage image</a></p>
           {% endif %}
           {% else %}
@@ -44,6 +46,7 @@
       <h2>Il n'y a rien sur cette page</h2>
     {% endblock %}
   </section>
+  {% block javascriptAnnex  %}{% endblock %}
   <footer class="footer">
     <div class="container">
       <div id="ftr-wrap">
