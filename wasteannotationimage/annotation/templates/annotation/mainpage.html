@@ -13,7 +13,7 @@
     	<h4 class="imageName">{{ image.name }}</h4>
       <p><a href="{% url 'annotationImage' image.id %}">Commencer l'annotation</a></p>
       <div class="imageContainer">
-        <img class="object-fit-cover" src="{{ image.image.url }}"/>
+        <img class="object-fit-cover" src="{{ image.image.url }}" alt="{{ image.name }}"/>
       </div>
     </div>
   {% empty %}

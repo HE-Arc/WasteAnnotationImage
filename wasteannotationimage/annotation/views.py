@@ -39,4 +39,7 @@ def annotationImage(request, id):
 
     return render(request, 'annotation/annotationImage.html', {'image': image})
 
+
+def redirectionLogin(request):
+    return redirect('login')
 # Create your views here.

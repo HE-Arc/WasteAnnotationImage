@@ -6,4 +6,5 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('newimage', views.newImage, name='newimage'),
     path('annotationImage/<int:id>', views.annotationImage, name='annotationImage'),
+    path('', views.redirectionLogin, name='redirectionLogin'),
     ]

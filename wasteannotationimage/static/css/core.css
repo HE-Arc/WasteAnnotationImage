@@ -1,12 +1,12 @@
 
 #jsoda-menu {
   position: absolute;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 9%;
+  margin-bottom: 5%;
   top: 0%;
-  right: 85%;
+  right: 77%;
   bottom: 0%;
-  left: 0%;
+  left: 10%;
   padding: 10px;
   background-color: LightSteelBlue ;
 }
@@ -34,13 +34,13 @@
 
 #jsoda-workspace {
   position: absolute;
-  top: 20%;
+  top: 18%;
   right: 0%;
   bottom: 0%;
-  left: 15%;
+  left: 25%;
   overflow: auto;
-  width: 70%; /*any size*/
-  height: 70%; /*any size*/
+  width: 55%; /*any size*/
+  height: 75%; /*any size*/
 }
 
 #jsoda-image {
