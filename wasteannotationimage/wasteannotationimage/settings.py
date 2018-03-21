@@ -26,8 +26,8 @@ SECRET_KEY = '^rj(u8bs-2!yz1oxwbp^7=k8j0(-x-6ts__mj*)jz%m_0mj)&r'
 DEBUG = True
 
 #pour le deploiement --> décommenter ligne 29 et commenter ligne 30
-#ALLOWED_HOSTS = ['wai.srvz-webapp.he-arc.ch']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['wai.srvz-webapp.he-arc.ch']
+#ALLOWED_HOSTS = []
 
 
 # Application definition
