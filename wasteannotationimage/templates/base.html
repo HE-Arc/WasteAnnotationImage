@@ -20,6 +20,13 @@
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">-->
   <!--<script src="script.js"></script>-->
+  <style>
+    body{
+      background-image: url( "{% static 'img/background.png' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+   }
+  </style>
 </head>
 {% block bodyCustom %}
 <body>
@@ -33,17 +40,24 @@
           Bonjour {{ user.username }}!
           <p><a class="loginlink" href="{% url 'logout' %}">logout</a>
           {% if user.is_staff %}
-              <a href="{% url 'newimage' %}">manage image</a></p>
+              <a href="{% url 'newimage' %}">manage image</a>
           {% endif %}
-          {% else %}
+              <a href="{% url 'mainpage' %}">home</a></p>
+        {% else %}
           <p>You are not logged in : <a href="{% url 'login' %}">login</a></p>
         {% endif %}
       {% endblock %}
     </p>
   </header>
   <section id="content">
-    {% block content %}
+    {% block accessContent %}
+    {% if user.is_authenticated %}
+      {% block content %}
       <h2>Il n'y a rien sur cette page</h2>
+      {% endblock %}
+    {% else %}
+      <h2>Désolé, Vous devez vous connectez</h2>
+    {% endif %}
     {% endblock %}
   </section>
   {% block javascriptAnnex  %}{% endblock %}

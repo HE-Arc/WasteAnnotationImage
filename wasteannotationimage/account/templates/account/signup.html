@@ -7,15 +7,17 @@
 {% block loginuser %}
   {# rien #}
 {% endblock %}
-{% block content %}
-<div id="divsignup">
-  <h2>Sign up</h2>
-  <form id="formsignup" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div id="formsignupbuttondiv">
-      <button type="submit">Sign up</button>
-    </div>
-  </form>
-</div>
+{% block accessContent %}
+  {% block content %}
+  <div id="divsignup">
+    <h2>Sign up</h2>
+    <form id="formsignup" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div id="formsignupbuttondiv">
+        <button type="submit">Sign up</button>
+      </div>
+    </form>
+  </div>
+  {% endblock %}
 {% endblock %}

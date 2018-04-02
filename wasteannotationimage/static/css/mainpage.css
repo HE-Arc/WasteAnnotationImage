@@ -7,7 +7,8 @@
 
 .imageContainer {
   width: 22%; /*any size*/
-  height: 22%; /*any size*/
+  height: 50%; /*any size*/
+  padding:0;
 }
 
 .imageName {

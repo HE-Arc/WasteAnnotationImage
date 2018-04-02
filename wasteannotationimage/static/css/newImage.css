@@ -1,0 +1,36 @@
+h2 {
+  text-align: center;
+}
+
+input{
+  float: right;
+}
+
+ul {
+ display:inline-block;
+ text-align:left;
+ list-style-type: none;
+ padding: 0;
+}
+
+li {
+
+}
+
+#divNewImage{
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+}
+
+#formsNewImage{
+  border:5px solid #0000b3;
+  width:55%;
+  padding:8px 8px;
+  margin:0 auto;
+  padding-bottom: 8%;
+}
+
+#formNewImageButtondiv{
+  text-align:center;
+}

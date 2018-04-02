@@ -74,6 +74,7 @@ function newBoxTypeInput() {
 document.getElementById("jsoda-box-list").appendChild(newBoxTypeInput());
 
 function clickInputFile() {
-  document.getElementById("jsoda-menu").childNodes[3].click();
-  console.log(document.getElementById("jsoda-menu").childNodes[3]);
+  //document.getElementById("jsoda-menu").childNodes[3].click();
+  document.getElementById("fileinput").click();
+  //console.log(document.getElementById("jsoda-menu").childNodes[3]);
 }

@@ -7,19 +7,21 @@
 {% block loginuser %}
   {# rien #}
 {% endblock %}
-{% block content %}
-  <div id="divlogin">
-    <h1>Bienvenue</h1>
-    <h2>Login</h2>
-    <form id="formlogin" method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-        <div id="formbuttondiv">
-          <button id="buttonlogin" type="submit">Login</button>
-          <button  onclick="location.href='{% url "signup" %}';">Create Account</button>
-        </div>
-    </form>
-  </div>
+{% block accessContent %}
+  {% block content %}
+    <div id="divlogin">
+      <h1>Bienvenue</h1>
+      <h2>Login</h2>
+      <form id="formlogin" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+          <div id="formbuttondiv">
+            <button id="buttonlogin" type="submit">Login</button>
+            <button  onclick="location.href='{% url "signup" %}';">Create Account</button>
+          </div>
+      </form>
+    </div>
+  {% endblock %}
 {% endblock %}
 {% block aboutfooter %}
 {# not link about if we are not connected #}

@@ -17,8 +17,12 @@
 <div onload="loadImageOnStart();">
   <div id="jsoda-menu">
     <p id="jsoda-box-list"></p>
-    <!--<input type="file" onchange="loadImage(this)" style="display: none"/>
-    <input type="button" value="Upload" onclick="clickInputFile()" />-->
+    <!--<input type="file" onchange="loadImage(this)" style="display: none"/>-->
+    <!--<input type="button" value="Upload" onclick="clickInputFile()" />-->
+    {% if user.is_staff %}
+      <input type="file" id="fileinput" style="display: none" />
+      <input type="button" value="Upload" onclick="clickInputFile()" />
+    {% endif %}
     <input type="button" value="Download" onclick="download()" />
   </div>
   <div id="jsoda-workspace">

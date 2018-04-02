@@ -175,39 +175,40 @@ function adjustYOffset() {
 
 var image;
 var fn;
-function loadImage(input) {
-  if (input.files && input.files[0]) {
-    var fr = new FileReader();
-    console.log(fr);
-    fr.onload = function(e) {
-      image = document.getElementById("jsoda-image");
-      image.onload = function() {
-        var jsodaCanvas = document.getElementById("jsoda-canvas");
-        jsodaCanvas.width = image.width;
-        jsodaCanvas.height = image.height;
-        // jsodaCanvas.width = jsodaCanvas.width;
-        // var context = canvas.getContext("2d");
-        // context.clearRect(0, 0, canvas.width, canvas.height);
-        // context.beginPath();
-        mousedown = false;
-        x1 = -1;
-        y1 = -1;
-        x2 = -1;
-        y2 = -1;
 
-        boxes = [];
-        redraw();
-      }
-      image.src = e.target.result;
-    }
-    fr.readAsDataURL(input.files[0]);
-    fn = input.files[0].name;
-    fn = fn.replace('.jpg', '.txt');
-    fn = fn.replace('.JPG', '.txt');
-    fn = fn.replace('.png', '.txt');
-    fn = fn.replace('.PNG', '.txt');
-  }
-}
+// function loadImage(input) {
+//   if (input.files && input.files[0]) {
+//     var fr = new FileReader();
+//     console.log(fr);
+//     fr.onload = function(e) {
+//       image = document.getElementById("jsoda-image");
+//       image.onload = function() {
+//         var jsodaCanvas = document.getElementById("jsoda-canvas");
+//         jsodaCanvas.width = image.width;
+//         jsodaCanvas.height = image.height;
+//         // jsodaCanvas.width = jsodaCanvas.width;
+//         // var context = canvas.getContext("2d");
+//         // context.clearRect(0, 0, canvas.width, canvas.height);
+//         // context.beginPath();
+//         mousedown = false;
+//         x1 = -1;
+//         y1 = -1;
+//         x2 = -1;
+//         y2 = -1;
+//
+//         boxes = [];
+//         redraw();
+//       }
+//       image.src = e.target.result;
+//     }
+//     fr.readAsDataURL(input.files[0]);
+//     fn = input.files[0].name;
+//     fn = fn.replace('.jpg', '.txt');
+//     fn = fn.replace('.JPG', '.txt');
+//     fn = fn.replace('.png', '.txt');
+//     fn = fn.replace('.PNG', '.txt');
+//   }
+// }
 
 function loadImageOnStart() {
       image = document.getElementById("jsoda-image");
@@ -242,6 +243,7 @@ function redraw() {
   var context = canvas.getContext('2d');
   // context.clearRect(0, 0, 800, 600);
   // context.beginPath();
+  //console.log(boxes);
 
   for (var i = 0; i < boxes.length; i++) {
     drawBoxOn(boxes[i], context);
@@ -252,6 +254,7 @@ function redraw() {
       drawBoxOn(tmpBox, context);
     }
   }
+  //console.log(boxes);
 }
 
 var boxes = [];
@@ -298,10 +301,19 @@ function findCurrentArea(x, y) {
 }
 
 function newBox(cls, x1, y1, x2, y2) {
+  console.log("x1 " + x1);
+  console.log("y1" + y1);
+  console.log("x2" + x2);
+  console.log("y2" + y2);
   boxX1 = x1 < x2 ? x1 : x2;
   boxY1 = y1 < y2 ? y1 : y2;
   boxX2 = x1 > x2 ? x1 : x2;
   boxY2 = y1 > y2 ? y1 : y2;
+  console.log("boxX1" + boxX1);
+  console.log("boxy1" + boxY1);
+  console.log("boxX2" + boxX2);
+  console.log("boxY2" + boxY2);
+
   if (boxX2 - boxX1 > lineOffset * 2 && boxY2 - boxY1 > lineOffset * 2) {
     return {class: cls,
             x1: boxX1,
@@ -324,7 +336,6 @@ function drawBoxOn(box, context) {
     context.fillStyle = 'rgba(' + rgb.join(',') + ',0.25)';
     context.fillRect(box.x1, box.y1, box.x2 - box.x1, box.y2 - box.y1);
   }
-
   context.strokeStyle = '#000000';//'rgb(' + box.color.r + ',' + box.color.g + ',' + box.color.b + ')';
   context.lineWidth = box.lineWidth;
   context.rect(box.x1, box.y1, (box.x2 - box.x1), (box.y2 - box.y1));
@@ -344,6 +355,7 @@ function drawBoxOn(box, context) {
   context.font = '25pt Calibri';
   context.textAlign = 'center';
   context.fillText(box.class, xCenter, yCenter);
+  //console.log(box.class);
 }
 
 function download() {
@@ -351,14 +363,41 @@ function download() {
   var text = '';
   for (var i = 0; i < boxes.length; i++) {
     var box = boxes[i];
-    text += box.class + ' 0 0 0 ' +
+    text += box.class + ' ' +
             box.x1 + ' ' + box.y1 + ' ' +
-            box.x2 + ' ' + box.y2 + ' 0 0 0 0 0 0 0\n';
+            box.x2 + ' ' + box.y2 + ' ';
   }
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-  element.setAttribute('download', fn);
+  element.setAttribute('download', 'download.txt');
   element.style.display = 'none';
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
+}
+
+document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+
+function readSingleFile(evt) {
+  alert("Attention : version pas operationnel, encore des bugs:)");
+  var f = evt.target.files[0];
+  if (f) {
+    var r = new FileReader();
+    r.onload = function(e) {
+        var contents = e.target.result;
+        var ct = r.result;
+        var words = ct.split(' ');
+        //alert(words[1]);
+        for (i = 0; i <= words.length-5; i+=5) {
+        //document.getElementById("alltext").value += words[i] + " " + words[i+1] + " " + words[i+2] + " " + words[i+3] + " " + words[i+4] + " ";
+        console.log( words[i] + " " + words[i+1] + " " + words[i+2] + " " + words[i+3] + " " + words[i+4] + " ");
+        boxes.push(newBox(words[i],words[i+1],words[i+2], words[i+3], words[i+4]));
+        addBoxTypeWithNameAndColor(words[i], "#"+((1<<24)*Math.random()|0).toString(16));
+        }
+    }
+    r.readAsText(f);
+  } else {
+    alert("Failed to load file");
+  }
+  console.log(boxes);
+  redraw();
 }
